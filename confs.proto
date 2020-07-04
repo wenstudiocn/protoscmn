@@ -1,0 +1,108 @@
+syntax = "proto3";
+package protos;
+
+import "structs.proto";
+
+// 项目中配置文件定义
+
+// zookeeper 连接配置
+message ZkConf {
+    repeated string addrs   = 1;
+    string username         = 2;
+    string password         = 3;
+    int32 timeout           = 4;
+}
+
+// redis 连接配置
+message RedisConf {
+    repeated string addrs   = 1;
+    string password         = 2;
+    int32 db                = 3;
+}
+
+// nats(-streaming) 连接配置
+message NatsConf {
+    repeated string addrs   = 1;
+    string username         = 2;
+    string password         = 3;
+    string clusterId        = 4;
+}
+
+// agent 服务器配置
+message AgentConf {
+    ZkConf zoo          = 1;
+    string namespace    = 2;
+    uint64 id           = 3;
+    string addr         = 4;
+    string rpcAddr      = 5;
+    string profileAddr  = 6;
+    string agentAddr    = 7;
+    string logPath      = 8;
+    int32 level         = 9;
+    string mode         = 10;
+}
+
+// zk 中 login 配置
+message LoginZkConf {
+    repeated string addrs   = 1;
+    string password         = 2;
+}
+
+// login 服务器启动配置
+// 因为 login 不在 zookeeper 中注册服务，所以 login 有两个配置
+message LoginConf {
+    uint64 id           = 1;
+    RedisConf redis     = 2;
+    NatsConf nats       = 3;
+    repeated EmailConf emails = 4;
+    string addr         = 5;
+    string agentAddr    = 7;
+    string rpcAddr      = 9;
+    string key          = 11;
+    string logPath      = 12;
+    int32 level         = 14;
+    string mode         = 16;
+}
+
+message ManagerConf {
+    ZkConf zoo          = 1;
+    string namespace    = 2;
+    uint64 id           = 3;
+    string addr         = 4;
+    string profileAddr  = 6;
+    string logPath      = 8;
+    int32 level         = 9;
+    string mode         = 10;
+}
+
+message LogicConf {
+    ZkConf zoo          = 1;
+    string namespace    = 2;
+    uint64 id           = 3;
+    string addr         = 4;
+    string rpcAddr      = 5;
+    string profileAddr  = 6;
+    string agentAddr    = 7;
+    string logPath      = 8;
+    int32 level         = 9;
+    string mode         = 10;
+}
+
+message RouteRule_ {
+    uint64 gameId       = 1;
+    Int32Scope scope    = 2;
+}
+
+// 路由规则配置
+message RouteRules {
+    repeated RouteRule_ rules = 1;
+}
+
+// smtp 服务器配置
+message EmailConf {
+    string smtp     = 1;
+    int32 port      = 2;
+    string username = 3;
+    string password = 4;
+    string crypto   = 5;
+}

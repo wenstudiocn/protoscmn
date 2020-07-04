@@ -1,0 +1,12 @@
+syntax="proto3";
+package protos;
+
+// 消息队列中系统事件
+
+message SysError {
+
+}
+
+message SysWarning {
+
+}

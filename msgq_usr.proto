@@ -1,0 +1,87 @@
+syntax="proto3";
+package protos;
+
+// 定义消息队列中消息格式
+
+message UserRegister {
+
+}
+
+message UserLogin {
+
+}
+
+message UserReset {
+
+}
+
+message UserLogout {
+
+}
+
+message UserDisable {
+
+}
+
+// 商城购买
+message UserBuy {
+
+}
+
+// 市场购买
+message UserTrade {
+
+}
+
+// 市场出售
+message UserSell {
+
+}
+
+
+message UserCheckin {
+
+}
+
+// 咨询客服
+message UserQuestion {
+
+}
+
+message UserEnterGame {
+
+}
+
+message UserLeaveGame {
+
+}
+
+// 提交工单
+message UserTicket {
+
+}
+
+// 使用除武器以外的道具
+message UserUse {
+
+}
+
+// 邮箱内领奖
+message UserClaim {
+
+}
+
+// 更新客户端设置
+message UserSetting {
+
+}
+
+// 更新个人信息
+message UserUpdate {
+
+}
+
+// 用户完成称号
+message UserNames {
+
+}

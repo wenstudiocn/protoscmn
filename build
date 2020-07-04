@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+import os
+import argparse
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-g', '--golang', help='build proto to golang output', action='store_true')
+    parser.add_argument('-p', '--python', help='build proto to python output', action='store_true')
+    parser.add_argument('-c', '--clean', help='clean build outputs', action='store_true')
+    args = parser.parse_args()
+    
+    if not args.golang and not args.python and not args.clean:
+        args.golang = True
+
+    cleaned = []
+    for cur, dirs, files in os.walk('.'):
+        if cur[2:8] == 'google':
+            continue
+        if cur[2:6] == '.git':
+            continue
+        for file in files:
+            f, ext = os.path.splitext(file)
+            if ext != '.proto':
+                continue
+            
+            if args.golang:
+                print('building ', file, ' golang ...')
+                os.system('protoc -I. --go_out=. {}'.format(os.path.join(cur,file)))
+            if args.python:
+                print('building ', file, ' python ...')
+                os.system('protoc -I. --python_out=. {}'.format(os.path.join(cur, file)))
+        if args.clean and cur not in cleaned:
+            print('removing ', cur, '...')
+            os.system('rm {0}/*.pb.go {0}/*_pb2.py'.format(cur))
+            cleaned.append(cur)
+    if args.golang or args.python:
+        print('done. check if any errors.')
+
+if __name__ == '__main__':
+    main()
