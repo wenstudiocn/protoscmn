@@ -1,4 +1,4 @@
 syntax="proto3";
-package protos;
+package protoscmn;
 
 // 消息队列中管理事件

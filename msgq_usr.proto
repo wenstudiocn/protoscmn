@@ -1,5 +1,5 @@
 syntax="proto3";
-package protos;
+package protoscmn;
 
 // 定义消息队列中消息格式
 
