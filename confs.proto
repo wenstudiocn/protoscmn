@@ -36,7 +36,7 @@ message NatsConf {
 
 // agent 服务器配置
 message AppConf {
-    ConfConf zoo          = 1;
+    ConfConf zoo        = 1;
     string namespace    = 2;
     uint64 id           = 3;
     string addr         = 4;
@@ -46,6 +46,20 @@ message AppConf {
     string logPath      = 8;
     int32 level         = 9;
     string mode         = 10;
+}
+
+message AppConfA {
+    RedisConf redis     = 1;
+    string namespace    = 2;
+    uint64 id           = 3;
+    string addr         = 4;
+    string rpcAddr      = 5;
+    string profileAddr  = 6;
+    string agentAddr    = 7;
+    string logPath      = 8;
+    int32 level         = 9;
+    string mode         = 10;
+    NatsConf nats       = 13;
 }
 
 // smtp 服务器配置
