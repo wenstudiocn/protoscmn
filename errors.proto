@@ -3,26 +3,27 @@ package protoscmn;
 
 
 enum ErrCode {
-  OK 				        		= 0;			// 成功
+  	OK 				        	= 0;			// 成功
 	PENDING 		        	= 1;			// 指令已经收到，正在处理
-	MAINTAINING		        = 2;			// 服务器维护
-	INVALID_PARAMS	      = 6;      // 参数错误
+	MAINTAINING		        	= 2;			// 服务器维护
+	INVALID_PARAMS	      		= 6;      // 参数错误
 	FAILED 			        	= 9; 			// 执行失败
-	EXHANSTED 		        = 10; 		// 已用尽
-	USER_OFFLINE	        = 301;		// 用户不在线
-	USER_ONLINE		        = 302;		// 用户在线
-	VER_MISMATCH	        = 303;		// 版本不匹配
-	BAD_REQUEST 	        = 400;		// 请求有错误，无法处理
-	AUTH 			        		= 401;		// 无权限
-	FORBIDDEN 		        = 403;		// 被禁止
-	TARGET_NOT_FOUND     	= 404;		// 请求命令不支持
+	EXHANSTED 		        	= 10; 		// 已用尽
+	USER_OFFLINE	        	= 301;		// 用户不在线
+	USER_ONLINE		        	= 302;		// 用户在线
+	VER_MISMATCH	        	= 303;		// 版本不匹配
+	BAD_REQUEST 	        	= 400;		// 请求有错误，无法处理
+	AUTH 			        	= 401;		// 无权限
+	NEED_PRE_AUTH				= 402;		// 需要重新鉴权
+	FORBIDDEN 		        	= 403;		// 被禁止
+	TARGET_NOT_FOUND     		= 404;		// 请求命令不支持
 	UNKNOWN 		        	= 500;		// 未知
-	NO_REACTION						= 602;		// 没有响应
-	INSUFFICIENT_BALANCE 	= 610;		// 余额不足
+	NO_REACTION					= 602;		// 没有响应
+	INSUFFICIENT_BALANCE 		= 610;		// 余额不足
 	LENGTH			        	= 612;		// 长度错误
 	TIMEOUT			        	= 614;		// 超时，(验证码 表示超时或输入错误)
 	EXPIRED 		        	= 615;		// 过期
-	BAD_FORMAT		        = 701;		// 格式不合法
+	BAD_FORMAT		        	= 701;		// 格式不合法
 	OCCUPIED		        	= 800;		// 已经被使用
 	DUP_OPER		        	= 801;		// 操作重复
 	UNBIND			        	= 806;		// 未绑定
